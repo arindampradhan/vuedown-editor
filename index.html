@@ -25,21 +25,27 @@
     .md-editor>textarea {
       padding: 10px 20px;
     }
+    form {
+    background: #f2f2f2;
+    padding: 0px ;
+}
   </style>
   <title>Markdown Editor</title>
 </head>
 <body>
   <!-- Text editor -->
+  <form action="">
   <div class="container-fluid" id="editor">
   <div class="row">
     <div class="col-md-6">
       <textarea name="content" v-model="input" data-provide="markdown" rows="35" debounce="300"></textarea>
     </div>
     <div class="col-md-6" >
-      <div v-html="input | marked" >kads jljasdklj</div>
+      <div v-html="input | marked" ></div>
     </div>
   </div>
   </div>
+  </form>
 <!-- Vue.js scripts -->
 <script>
 new Vue({
@@ -54,13 +60,13 @@ new Vue({
 </script>
 <!-- Adjust rows number : default - 35 -->
 <script>
-$(document).ready(function() {
+/*$(document).ready(function() {
   var size = parseInt($("textarea").css('font-size'), 10);
   var height = $(window).height();
   var row = Math.floor(height/size) - 19;
   $("textarea").attr("rows",row) ;
 });
-</script>
+*/</script>
   <script src="http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <script src="js/markdown.js"></script>
