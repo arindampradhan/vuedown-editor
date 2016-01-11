@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Bootstrap-markdown : Bootstrap plugin for markdown editing" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script src="js/vue.js"></script>
+
+    <style>
+		html, body, #editor {
+		  margin: 0;
+		  height: 100%;
+		  font-family: 'Helvetica Neue', Arial, sans-serif;
+		  color: #333;
+		}
+
+		textarea, #editor div {
+		  display: inline-block;
+		  width: 49%;
+		  height: 100%;
+		  vertical-align: top;
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		  padding: 0 20px;
+		}
+
+		textarea {
+		  border: none;
+		  border-right: 1px solid #ccc;
+		  resize: none;
+		  outline: none;
+		  background-color: #f6f6f6;
+		  font-size: 14px;
+		  font-family: 'Monaco', courier, monospace;
+		  padding: 20px;
+		}
+
+		code {
+		  color: #f66;
+		}
+  </style>
+  <title>Markdown Editor</title>
+</head>
+<body>
+	<div id="editor">
+	  <textarea v-model="input" debounce="300"></textarea>
+	  <div v-html="input | marked"></div>
+	</div>
+
+  <script>
+	new Vue({
+	  el: '#editor',
+	  data: {
+	    input: '## vue.js Simple Markdown Editor'
+	  },
+	  filters: {
+	    marked: marked
+	  }
+	})
+  </script>
+  <script src="http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/to-markdown.js"></script>
+  <script src="js/bootstrap-markdown.js"></script>
+  <script src="http://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

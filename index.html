@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Bootstrap-markdown : Bootstrap plugin for markdown editing" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script src="js/vue.js"></script>
+
+    <style>
+    .col-md-6 {
+      right: 15px !important;
+    }
+    body{
+      background-color: lavenderblush;
+    }
+    .md-editor>textarea {
+      padding: 10px 20px;
+    }
+  </style>
+  <title>Markdown Editor</title>
+</head>
+<body>
+  <!-- Text editor -->
+  <div class="container-fluid" id="editor">
+  <div class="row">
+    <div class="col-md-6">
+      <textarea name="content" v-model="input" data-provide="markdown" rows="35" debounce="300"></textarea>
+    </div>
+    <div class="col-md-6" >
+      <div v-html="input | marked" >kads jljasdklj</div>
+    </div>
+  </div>
+  </div>
+<!-- Vue.js scripts -->
+<script>
+new Vue({
+  el: '#editor',
+  data: {
+    input: '## vue.js Markdown Editor'
+  },
+  filters: {
+    marked: marked
+  }
+})
+</script>
+<!-- Adjust rows number : default - 35 -->
+<script>
+$(document).ready(function() {
+  var size = parseInt($("textarea").css('font-size'), 10);
+  var height = $(window).height();
+  var row = Math.floor(height/size) - 19;
+  $("textarea").attr("rows",row) ;
+});
+</script>
+  <script src="http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/to-markdown.js"></script>
+  <script src="js/bootstrap-markdown.js"></script>
+  <script src="http://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
