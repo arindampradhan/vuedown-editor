@@ -1,12 +1,11 @@
 Vuedown Editor
 --------------
 
-A Simple markdown editor vuejs + bootstrap-markdown
+A Simple markdown editor using vue.js and bootstrap-markdown.
 
-> IDEA: vuejs editor and bootstrap tooltip.
+**In One Word:** vuejs editor  +  bootstrap tooltip.
 
 Features
 --------
-* Easy to learn
-* Easy to code with
-* Dead Simple to use
+* Easy to learn.
+* Dead Simple to use.
